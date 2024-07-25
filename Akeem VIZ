@@ -5,13 +5,16 @@
 #How can understanding platform-specific engagement help in targeting the right audience?
 #What content resonates the most with users on different platforms, as indicated by the engagement metrics?
 ##################Explanation of How This Graph Can Help Businesses or Governments:
+
 #-Targeted Content Creation: By identifying which platforms generate the most likes and retweets for positive posts, businesses and governments can tailor their content to fit the preferences of users on those platforms. For example, if Instagram has the highest average likes, efforts can be focused on creating visually appealing content for Instagram.
 #-Optimizing Engagement Strategies: The graph helps in understanding which platforms are more effective for positive sentiment engagement. Businesses can optimize their social media strategies by investing more in platforms that yield higher engagement. Governments can use these platforms for public awareness campaigns to maximize reach and impact.
 #-Resource Allocation: Knowing which platforms drive the most engagement allows for better allocation of resources. Businesses can allocate advertising budgets and marketing efforts to the platforms that provide the best return on investment. Similarly, governments can focus on platforms that are more effective for disseminating information and engaging with citizens.
 #-Influencer Partnerships: The data can help identify which platforms have the highest engagement for positive sentiments, guiding businesses to partner with influencers on those platforms. Governments can collaborate with social media influencers to spread positive messages and increase public engagement.
 #-Improving Public Perception: By understanding which platforms generate more positive engagement, governments can improve public perception by focusing their communication efforts on those platforms. This can lead to better public relations and stronger community ties.
+#-Crisis Management and Positive Reinforcement: The insights from this graph can help in managing public sentiment during a crisis. By leveraging platforms with high engagement for positive sentiments, governments and businesses can reinforce positive messages and mitigate negative perceptions.
 
-Crisis Management and Positive Reinforcement: The insights from this graph can help in managing public sentiment during a crisis. By leveraging platforms with high engagement for positive sentiments, governments and businesses can reinforce positive messages and mitigate negative perceptions.
+#############-----Code-----##############
+
 # Create a DataFrame
 df = pd.DataFrame(data)
 
@@ -75,6 +78,7 @@ plt.show()
 #Public Awareness Campaigns:
 #Governments: Design campaigns that effectively resonate with citizens based on sentiment data. Positive sentiment data can guide the creation of messages that are more likely to be well-received.
 
+#############-----Code-----##############
 
 import plotly.express as px
 df = pd.read_csv('C:\\Users\\avaan\\Downloads\\archive (1)\\sentimentdataset.csv')
@@ -116,6 +120,7 @@ fig.show()
 #Public Awareness Campaigns:
 #Governments: Design and implement public awareness campaigns based on the insights from sentiment analysis. Positive engagement data can guide the creation of messages that are more likely to be shared and accepted by the public.
 
+#############-----Code-----##############
 
 import plotly.express as px
 df = pd.read_csv('C:\\Users\\avaan\\Downloads\\archive (1)\\sentimentdataset.csv')
@@ -126,6 +131,8 @@ fig.show()
 -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 ###########################################################---------------(((((((((interactive widget)))))))))----------------######################################################################################################
+
+#############-----Code-----##############
 
 import plotly.express as px
 import ipywidgets as widgets
