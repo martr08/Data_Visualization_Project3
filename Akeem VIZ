@@ -1,0 +1,70 @@
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Filter the dataframe for positive sentiments
+positive_df = df[df['Sentiment'] == 'Positive']
+
+# Group by country and calculate the mean likes and retweets
+platform_stats = positive_df.groupby('Platform')[['Likes', 'Retweets']].mean().reset_index()
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import matplotlib.pyplot as plt
+df = pd.read_csv('C:\\Users\\avaan\\Downloads\\archive (1)\\sentimentdataset.csv')
+# Plotting the data
+fig, ax = plt.subplots(2, 1, figsize=(10, 10))
+
+# Bar plot for average likes
+ax[0].bar(platform_stats['Platform'], platform_stats['Likes'], color='blue')
+ax[0].set_title('Average Likes for Positive Posts by Platform')
+ax[0].set_xlabel('Platform')
+ax[0].set_ylabel('Average Likes')
+
+# Bar plot for average retweets
+ax[1].bar(platform_stats['Platform'], platform_stats['Retweets'], color='green')
+ax[1].set_title('Average Retweets for Positive Posts by Country')
+ax[1].set_xlabel('Platform')
+ax[1].set_ylabel('Average Retweets')
+
+plt.tight_layout()
+plt.show()
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import plotly.express as px
+df = pd.read_csv('C:\\Users\\avaan\\Downloads\\archive (1)\\sentimentdataset.csv')
+fig = px.bar(df, x="Country", y="Likes", color='Sentiment',facet_col="Platform")
+fig.update_layout(margin=dict(l=5, r=5, t=20, b=5))
+fig.show()
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+import plotly.express as px
+import ipywidgets as widgets
+from IPython.display import display
+
+df = pd.read_csv('C:\\Users\\avaan\\Downloads\\archive (1)\\sentimentdataset.csv')
+
+
+# Create the interactive widget (Dropdown for Country selection)
+country_selector = widgets.Dropdown(
+    options=df['Country'].unique(),
+    description='Country:',
+    value=df['Country'].unique()[0]
+)
+
+# Function to update the plot based on widget input
+def update_plot(selected_country):
+    filtered_df = df[df['Country'] == selected_country]
+
+
+fig = px.scatter(df, x="Sentiment", y="Retweets", color="Country",facet_col="Platform")
+fig.show()
+
+
+# Create an interactive output widget
+out = widgets.interactive_output(update_plot, {'selected_country': country_selector})
+
+# Display the widget and the output plot
+display(country_selector, out)
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
