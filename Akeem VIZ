@@ -1,0 +1,169 @@
+##################Questions from the Data:
+#Which platforms generate the most engagement (likes and retweets) for positive sentiments?
+#How do different platforms compare in terms of average likes and retweets for positive posts?
+#What strategies can businesses and governments employ to enhance positive engagement on social media platforms?
+#How can understanding platform-specific engagement help in targeting the right audience?
+#What content resonates the most with users on different platforms, as indicated by the engagement metrics?
+##################Explanation of How This Graph Can Help Businesses or Governments:
+
+#-Targeted Content Creation: By identifying which platforms generate the most likes and retweets for positive posts, businesses and governments can tailor their content to fit the preferences of users on those platforms. For example, if Instagram has the highest average likes, efforts can be focused on creating visually appealing content for Instagram.
+#-Optimizing Engagement Strategies: The graph helps in understanding which platforms are more effective for positive sentiment engagement. Businesses can optimize their social media strategies by investing more in platforms that yield higher engagement. Governments can use these platforms for public awareness campaigns to maximize reach and impact.
+#-Resource Allocation: Knowing which platforms drive the most engagement allows for better allocation of resources. Businesses can allocate advertising budgets and marketing efforts to the platforms that provide the best return on investment. Similarly, governments can focus on platforms that are more effective for disseminating information and engaging with citizens.
+#-Influencer Partnerships: The data can help identify which platforms have the highest engagement for positive sentiments, guiding businesses to partner with influencers on those platforms. Governments can collaborate with social media influencers to spread positive messages and increase public engagement.
+#-Improving Public Perception: By understanding which platforms generate more positive engagement, governments can improve public perception by focusing their communication efforts on those platforms. This can lead to better public relations and stronger community ties.
+#-Crisis Management and Positive Reinforcement: The insights from this graph can help in managing public sentiment during a crisis. By leveraging platforms with high engagement for positive sentiments, governments and businesses can reinforce positive messages and mitigate negative perceptions.
+
+#############-----Code-----##############
+
+# Create a DataFrame
+df = pd.DataFrame(data)
+
+# Filter the dataframe for positive sentiments
+positive_df = df[df['Sentiment'] == 'Positive']
+
+# Group by country and calculate the mean likes and retweets
+platform_stats = positive_df.groupby('Platform')[['Likes', 'Retweets']].mean().reset_index()
+
+import matplotlib.pyplot as plt
+df = pd.read_csv('C:\\Users\\avaan\\Downloads\\archive (1)\\sentimentdataset.csv')
+# Plotting the data
+fig, ax = plt.subplots(2, 1, figsize=(10, 10))
+
+# Bar plot for average likes
+ax[0].bar(platform_stats['Platform'], platform_stats['Likes'], color='blue')
+ax[0].set_title('Average Likes for Positive Posts by Platform')
+ax[0].set_xlabel('Platform')
+ax[0].set_ylabel('Average Likes')
+
+# Bar plot for average retweets
+ax[1].bar(platform_stats['Platform'], platform_stats['Retweets'], color='green')
+ax[1].set_title('Average Retweets for Positive Posts by Country')
+ax[1].set_xlabel('Platform')
+ax[1].set_ylabel('Average Retweets')
+
+plt.tight_layout()
+plt.show()
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+###################Questions from the Data:
+#Which countries have the highest positive sentiment engagement (likes) on different social media platforms?
+#How do the sentiments (positive, neutral, negative) vary across different countries on various platforms?
+#What is the correlation between sentiment and engagement (likes) across different platforms and countries?
+#Which platform is most effective for positive sentiment in a specific country?
+#How can businesses leverage high engagement regions and platforms for targeted marketing?
+#What are the engagement patterns for negative sentiments and how can they be addressed?
+###################Explanation of How This Graph Can Help Businesses or Governments:
+#################Targeted Marketing and Communication:
+#Businesses: Identify which countries and platforms have the highest positive engagement to target marketing efforts more effectively. For example, if positive sentiments on Instagram in the USA generate high likes, businesses can focus their advertising and content creation on Instagram for the US market.
+#Governments: Utilize platforms and countries with high positive engagement to disseminate public information, campaigns, and initiatives to ensure maximum reach and impact.
+#Content Strategy Optimization:
+
+#Businesses: Understand which sentiments resonate most with the audience in different countries and tailor content accordingly. For instance, if positive content in Canada on Twitter gets the most likes, businesses can focus on creating similar content.
+#Governments: Develop content that generates positive sentiments to improve public relations and citizen engagement.
+#Crisis Management:
+
+#Businesses: Analyze negative sentiment data to understand public concerns and address them promptly to manage brand perception.
+#Governments: Quickly identify regions and platforms with high negative sentiment to address issues, provide solutions, and improve public trust.
+#Resource Allocation:
+
+#Businesses: Allocate marketing budgets and resources to platforms and regions with the highest engagement to ensure efficient use of resources.
+#Governments: Focus communication efforts on platforms and regions where positive sentiments are higher to maximize the impact of public awareness campaigns.
+#Influencer Partnerships:
+
+#Businesses: Identify platforms and regions with high positive sentiment and collaborate with influencers in those areas to amplify brand messaging.
+#Governments: Work with social media influencers who have a positive impact in specific regions to promote government initiatives and programs.
+#Public Awareness Campaigns:
+#Governments: Design campaigns that effectively resonate with citizens based on sentiment data. Positive sentiment data can guide the creation of messages that are more likely to be well-received.
+
+#############-----Code-----##############
+
+import plotly.express as px
+df = pd.read_csv('C:\\Users\\avaan\\Downloads\\archive (1)\\sentimentdataset.csv')
+fig = px.bar(df, x="Country", y="Likes", color='Sentiment',facet_col="Platform")
+fig.update_layout(margin=dict(l=5, r=5, t=20, b=5))
+fig.show()
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+#############################Questions from the Data:
+#Which sentiment type (positive, neutral, negative) generates the most retweets in different countries?
+#How do retweets vary by sentiment across different social media platforms?
+#Which country shows the highest engagement (retweets) for positive sentiments across platforms?
+#How do negative sentiments impact engagement on various platforms in different countries?
+#What are the trends in engagement for each sentiment type on different platforms and countries?
+#Which platforms and countries should businesses focus on for maximizing positive engagement?
+############################Explanation of How This Graph Can Help Businesses or Governments:
+###########################Targeted Marketing and Communication:
+#Businesses: By identifying which sentiments generate the most retweets in different countries, businesses can tailor their content to align with local audience preferences. For instance, if positive sentiments generate high engagement in the USA on Twitter, businesses can focus on positive messaging for their American Twitter audience.
+#Governments: Governments can use this information to craft messages that are more likely to be retweeted and shared, thereby increasing the reach of public announcements and campaigns. Understanding which sentiments resonate can help in creating effective communication strategies.
+#Platform-Specific Strategies:
+
+#Businesses: Different platforms may show varying levels of engagement for the same sentiment. By analyzing these patterns, businesses can optimize their social media strategies for each platform. For example, if Instagram shows high retweets for positive sentiments in Canada, businesses can prioritize Instagram for their Canadian audience.
+#Governments: Similar to businesses, governments can optimize their communication strategies for different platforms based on engagement data. This ensures that public messages are disseminated effectively through the most impactful channels.
+#Crisis Management:
+
+#Businesses: By monitoring negative sentiments and their engagement levels, businesses can quickly address customer concerns and mitigate any potential PR issues. High engagement on negative sentiments can signal areas that need immediate attention.
+#Governments: Governments can use the data to identify and address public concerns swiftly. High engagement on negative sentiments can indicate widespread issues that require prompt governmental response.
+#Content Creation and Optimization:
+
+#Businesses: Understanding which sentiments drive engagement can guide content creation. For example, if positive sentiments about fitness generate high retweets on Instagram, a business in the fitness industry can focus on creating more positive fitness-related content.
+#Governments: Governments can create content that generates positive engagement to improve public relations. Content that resonates well with the public can be replicated and expanded upon to maintain high engagement levels.
+#Resource Allocation:
+
+#Businesses: Allocate resources and marketing budgets to platforms and countries that show the highest engagement for desired sentiments. This ensures efficient use of resources for maximum impact.
+#Governments: Focus efforts and resources on the most effective platforms and regions to ensure that public messages reach the maximum number of people.
+#Public Awareness Campaigns:
+#Governments: Design and implement public awareness campaigns based on the insights from sentiment analysis. Positive engagement data can guide the creation of messages that are more likely to be shared and accepted by the public.
+
+#############-----Code-----##############
+
+import plotly.express as px
+df = pd.read_csv('C:\\Users\\avaan\\Downloads\\archive (1)\\sentimentdataset.csv')
+fig = px.scatter(df, x="Sentiment", y="Retweets", color="Country",facet_col="Platform")
+fig.show()
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+###########################################################---------------(((((((((interactive widget)))))))))----------------######################################################################################################
+
+#############-----Code-----##############
+
+import plotly.express as px
+import ipywidgets as widgets
+from IPython.display import display
+
+df = pd.read_csv('C:\\Users\\avaan\\Downloads\\archive (1)\\sentimentdataset.csv')
+
+# Create the interactive widget (Dropdown for Country selection)
+country_selector = widgets.Dropdown(
+    options=df['Country'].unique(),
+    description='Country:',
+    value=df['Country'].unique()[0]
+)
+
+# Function to update the plot based on widget input
+def update_plot(selected_country):
+    filtered_df = df[df['Country'] == selected_country]
+    
+    # Add this line to capture the selected country in a variable
+    selected_country_variable = selected_country
+
+    fig = px.scatter(filtered_df, x="Sentiment", y="Retweets", color="Country", facet_col="Platform")
+    fig.show()
+
+# Create an interactive output widget
+out = widgets.interactive_output(update_plot, {'selected_country': country_selector})
+
+# Display the widget and the output plot
+display(country_selector, out)
+
+
+
+
+
